@@ -14,13 +14,16 @@
         android:theme="@style/Theme.Movies">
         <activity
             android:name=".ui.movie_list.MoviesActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.movie_detail.MovieDetailsActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

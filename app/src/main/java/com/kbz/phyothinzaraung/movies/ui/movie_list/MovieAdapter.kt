@@ -11,13 +11,14 @@ import com.bumptech.glide.Glide
 import com.kbz.phyothinzaraung.movies.R
 import com.kbz.phyothinzaraung.movies.data.model.Movie
 import com.kbz.phyothinzaraung.movies.databinding.ItemMovieBinding
+import com.kbz.phyothinzaraung.movies.ui.RecyclerViewItemClickListener
 import com.kbz.phyothinzaraung.movies.util.Constant
 import java.lang.System.load
 
-class MovieAdapter: PagingDataAdapter<Movie, MovieAdapter.MovieViewHolder>(MovieComparator()) {
+class MovieAdapter(private val listener:RecyclerViewItemClickListener): PagingDataAdapter<Movie, MovieAdapter.MovieViewHolder>(MovieComparator()) {
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bind(getItem(position)!!)
+        holder.bind(getItem(position)!!, listener)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -26,13 +27,14 @@ class MovieAdapter: PagingDataAdapter<Movie, MovieAdapter.MovieViewHolder>(Movie
     }
 
     class MovieViewHolder(private val binding: ItemMovieBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(movie: Movie){
+        fun bind(movie: Movie, listener: RecyclerViewItemClickListener){
             binding.apply {
                 textTitle.text = movie.title
                 Glide.with(binding.root)
                     .load("${Constant.IMAGE_URL}${movie.poster_path}")
                     .centerCrop()
-                    .into(imageMoviePoster);
+                    .into(imageMoviePoster)
+                binding.root.setOnClickListener{listener.onRecyclerViewItemClick(binding.root, movie)}
             }
         }
     }

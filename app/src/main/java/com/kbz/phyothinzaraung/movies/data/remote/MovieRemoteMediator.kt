@@ -41,13 +41,14 @@ class MovieRemoteMediator(
             val response = api.getAllMovies(Constant.API_KEY, page)
             val remoteMovies = response.results
 
-            val movies = remoteMovies.map { remoteMovies ->
+            val movies = remoteMovies.map { remoteMovies: Movie ->
                 Movie(
                     id = remoteMovies.id,
                     title = remoteMovies.title,
                     overview = remoteMovies.overview,
                     release_date = remoteMovies.release_date,
-                    poster_path = remoteMovies.poster_path
+                    poster_path = remoteMovies.poster_path,
+                    original_language = remoteMovies.original_language
                 )
             }
 

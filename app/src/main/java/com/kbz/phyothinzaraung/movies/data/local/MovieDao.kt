@@ -23,15 +23,11 @@ interface MovieDao {
     @Query("SELECT * FROM remotekey WHERE id = :id")
     suspend fun getRemoteKey(id: Int): RemoteKey
 
-    @Query("SELECT * FROM remotekey")
-    suspend fun getAllRemoteKey(): List<RemoteKey>
-
     @Query("DELETE FROM remotekey")
     fun clearAllRemoteKey()
 
     @Update
     suspend fun updateMovie(movie: Movie)
-
 
     @Query("DELETE FROM movie")
     fun clearAllMovie()

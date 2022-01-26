@@ -24,11 +24,5 @@ class MoviesRepository @javax.inject.Inject constructor(
     ).flow
 
 
-    suspend fun updateMovie(movie: Movie) {
-        db.movieDao().updateMovie(movie)
-
-    }
-
-
 
 }

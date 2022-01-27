@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/layout/activity_movies.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_movie.xml" value="0.1" />
         <entry key="app/src/main/res/layout/partial_details_info.xml" value="0.11005434782608696" />
+        <entry key="app/src/main/res/menu/menu_search.xml" value="0.11302083333333333" />
         <entry key="app/src/main/res/menu/search.xml" value="0.1" />
       </map>
     </option>
